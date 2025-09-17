@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities</title>
+    <style>
+        
+
+        body {
+            background-color: #000000;
+            color: rgb(224, 224, 224);
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+    
+        <h1>If Else</h1>
+
+        <label>INPUT GRADES: </label>
+        <input type="number" id="grades"   min="70"  placeholder="75 - 99" style="text-align: center;">
+        <button id="btn" onclick="checking()">SUBMIT</button>
+        <h2 id="msg">Checking if you are Passed or with Honor</h2>
+
+    <script>
+        let msg = document.getElementById("msg");
+    
+        function checking() {
+            var grades = document.getElementById("grades")
+            grades = Number(grades.value)
+            console.log(grades) 
+            
+            if (grades > 99) {
+                msg.innerHTML = "Wrong Input.. <br> 99 is the Maximum grades input."
+                document.getElementById("grades").style.color = "red"
+                document.getElementById("grades").style.fontWeight = "bolder"
+            }
+            else if (grades > 95) {
+                msg.textContent = "WITH HIGHEST HONOR"
+            }
+            else if (grades >= 85 ) {
+                msg.textContent = "WITH HIGH HONOR"
+            }
+            else if (grades >= 80 ) {
+                msg.textContent = "WITH HONOR"
+            }
+            else if (grades >= 75) {
+                msg.textContent = "PASSED"
+            }
+            else {
+                msg.textContent = "FAILED"
+            }
+            
+        }
+
+
+
+    </script>
+
+<h2 style="text-align: center;">Charts Of My Favorite Colors</h2>
+<canvas style="color:white;" id="PieCharts" width="50" height="30"></canvas>
+<script>
+    var canvasElement = document.getElementById("PieChart");
+
+    var config = {
+        type: "pie",
+        data: {
+            labels: ["Black", "Blue", "Red", "Grey", "White"],
+            datasets: [
+                { 
+                    label:  "Favorite Colors", 
+                    data: [30, 18, 16, 10,17.1],
+                    backgroundColor: [
+                    "rgba(0, 0, 0)",
+                    "rgba(0, 0, 255)",
+                    "rgba(255, 0, 0)",
+                    "rgba(180, 180, 180)",
+                    "rgba(255, 255, 255)"
+                ],
+                borderColor: [
+                "rgba(0, 0, 0)",
+                "rgba(0, 0, 0)",
+                "rgba(0, 0, 0)",
+                "rgba(0, 0, 0)",
+                "rgba(0, 0, 0)"
+                ],
+                borderWidth: 2
+                }
+            ],
+        },
+    };
+
+    var PiieChart = new Chart(canvasElement, config)
+   </script>
+</body>
+</html>
