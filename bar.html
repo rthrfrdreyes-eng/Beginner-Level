@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Document</title>
+    <style>
+        input {
+            text-align: center;
+            padding: 10px 20px;
+            width: 100px;
+            border-radius: 5px;
+        }
+        
+        body {
+            background-color: cornflowerblue;
+            height: 90dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Interactive Bar Graph</h1>
+    <center>
+    <canvas style="color:white;" id="BarCharts" width="50" height="30"></canvas>
+    <div id="div1">
+    <input id="Major" min="0" max="100" type="number" placeholder="Major" >
+    <input id="ProfEnglish" min="0" max="100" type="number"  placeholder="Prof English">
+    <input id="English" min="0" max="100" type="number"  placeholder="English">
+    <input id="Research" min="0" max="100" type="number"  placeholder="Research">
+    <input id="PE" min="0" max="100" type="number"  placeholder="PE">
+    </div>
+    <button type="button" onclick="btn()" >GENERATE</button>
+    </center>
+   
+    <script>
+        
+       
+    
+
+
+        function btn() {
+            
+        
+        var Major = document.getElementById("Major").value;
+        
+        var ProfEnglish = document.getElementById("ProfEnglish").value;
+        
+        var English = document.getElementById("English").value;
+       
+        var Research = document.getElementById("Research").value;
+        
+        var PE = document.getElementById("PE").value;
+      
+        var canvasElement = document.getElementById("BarCharts");
+            var config = {
+            type: "bar",
+            data: {
+            labels: ["Major", "ProfEnglish", "English", "Research", "PE"],
+            datasets: [
+                { 
+                    label:  "", 
+                    data: [Major, ProfEnglish, English, Research, PE],
+                    backgroundColor: [
+                    "rgba(0, 0, 0)",
+                    "rgba(0, 0, 255)",
+                    "rgba(255, 0, 0)",
+                    "rgba(180, 180, 180)",
+                    "rgba(255, 255, 255)"
+                ],
+                borderColor: [
+                "rgba(0, 0, 0)",
+                "rgba(0, 0, 0)",
+                "rgba(0, 0, 0)",
+                "rgba(0, 0, 0)",
+                "rgba(0, 0, 0)"
+                ],
+                borderWidth: 2
+                }
+            ],
+        },
+    };
+
+    var BarCharts = new Chart(canvasElement, config)
+    
+        }
+        
+        
+
+
+       
+
+
+
+
+    
+    </script>
+</body>
+</html>
